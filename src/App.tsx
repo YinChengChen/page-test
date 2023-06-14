@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import { lightBlue } from "@mui/material/colors";
+// import NavBar from "./components/NavBar/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Reference from "./pages/Reference";
+import Second from "./pages/Second";
+import "./App.scss";
+import ResponsiveAppBar from "./components/NavBar/ResponsiveAppBar";
+// import MyCounter from "./components/MyCounter/MyCounter";
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      default: lightBlue[900],
+      paper: lightBlue[900],
+    },
+  },
+  components: {},
+});
 
 function App() {
+  const [width, setWidth] = React.useState(0);
+  React.useEffect(() => {
+    const updateWindowDimensions = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", updateWindowDimensions);
+    return () => window.removeEventListener("resize", updateWindowDimensions);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <ResponsiveAppBar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          {/* <Route path="/second" element={<Second/>}></Route> */}
+          <Route path="/Reference" element={<Reference />}></Route>
+          {/* <Route path="/Second" element={<Second />}></Route> */}
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 
