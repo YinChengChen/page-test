@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Grid, Typography, Card, CardContent, Box } from "@mui/material";
+import { Grid, Typography, Card, Box } from "@mui/material";
 import { lightBlue, blue } from "@mui/material/colors";
 interface dateList {
   kp: string;
@@ -15,8 +15,6 @@ interface MatrixItem {
   xrayColor: string;
 }
 const DataCalander = (dateList: dateList) => {
-  const [kpfn, setKpfn] = useState(dateList.kp);
-  const [xyfn, setXyfn] = useState(dateList.xray);
   const weeks = [
     "星期日",
     "星期一",
@@ -26,13 +24,7 @@ const DataCalander = (dateList: dateList) => {
     "星期五",
     "星期六",
   ];
-  const initalMatrix: MatrixItem[] = [
-    { week: 0, day: "", kp: "", xray: "", kpColor: "", xrayColor: "" },
-    { week: 1, day: "", kp: "", xray: "", kpColor: "", xrayColor: "" },
-    { week: 2, day: "", kp: "", xray: "", kpColor: "", xrayColor: "" },
-    { week: 3, day: "", kp: "", xray: "", kpColor: "", xrayColor: "" },
-  ];
-  const [clander, setClander] = useState<MatrixItem[]>(initalMatrix);
+  const [clander, setClander] = useState<MatrixItem[]>([]);
   useEffect(() => {
     const fetchData = async (kfn: string, xfn: string) => {
       let res = await fetch(kfn);
@@ -56,7 +48,6 @@ const DataCalander = (dateList: dateList) => {
         });
       // @ts-ignore
       xdata.map((item) => {
-        // console.log(item.Date)
         // @ts-ignore
         let kpEl = kdata.find((element) => element.Date === item.Date);
         let intPart = Math.round(kpEl.kp);

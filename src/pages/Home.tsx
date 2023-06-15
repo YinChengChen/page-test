@@ -7,7 +7,7 @@ import CardEvents from "../components/CardInfo/CardEvents";
 
 export default function Home() {
   return (
-    <Box sx={{ mx: 3, pt: 12}} height="100vh">
+    <Box sx={{ mx: 3, pt: 12 }} height="100vh">
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <CardInfo />
