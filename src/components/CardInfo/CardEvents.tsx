@@ -6,9 +6,9 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
+  Box,
 } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import ImageGallery from "../ImageGallery/ImageGallery";
 import ReactVideoGallery from "../ReactVideoGallery/ReactVideoGallery";
 import { useState } from "react";
 interface videoProps {
@@ -17,80 +17,35 @@ interface videoProps {
 }
 
 export default function CardEvents() {
-  const [targetTime, setTargetTime] = useState("16");
-  const cardTitle = "近期事件 - 2023/03/16 電漿泡事件";
-  const mm = [10, 20, 30, 40, 50, 60];
+  const [targetTime, setTargetTime] = useState("00");
+  const cardTitle = "GPS 電離層擾動測報";
 
   let selectList = [];
-  for (let i = 9; i < 17; i++) selectList.push(i.toString().padStart(2, "0"));
+  for (let i = 0; i < 24; i++) selectList.push(i.toString().padStart(2, "0"));
 
-  const initialVideoList: videoProps[] = [
-    {
-      poster: "./data/images/test_" + targetTime + mm[0].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[0].toString() +
-        ".mp4",
-    },
-    {
-      poster: "./data/images/test_" + targetTime + mm[1].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[1].toString() +
-        ".mp4",
-    },
-    {
-      poster: "./data/images/test_" + targetTime + mm[2].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[2].toString() +
-        ".mp4",
-    },
-    {
-      poster: "./data/images/test_" + targetTime + mm[3].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[3].toString() +
-        ".mp4",
-    },
-    {
-      poster: "./data/images/test_" + targetTime + mm[4].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[4].toString() +
-        ".mp4",
-    },
-    {
-      poster: "./data/images/test_" + targetTime + mm[5].toString() + "00.png",
-      videoUrl:
-        "./data/movies/movie_2023075" +
-        (parseInt(targetTime) + 1).toString().padStart(2, "0") +
-        mm[5].toString() +
-        ".mp4",
-    },
-  ];
-  const [videoList, setVideoList] = useState<videoProps[]>(initialVideoList);
-  
+  const initialVideoList: videoProps = {
+    poster: "./data/images/01/test_0001.png",
+    videoUrl: "./data/movie/movie_202307501.mp4",
+  };
+  const [videoList, setVideoList] = useState<videoProps>(initialVideoList);
+
   const handleChange = (event: SelectChangeEvent) => {
     setTargetTime(event.target.value);
     let tmp = event.target.value;
     let nextTmp = parseInt(tmp) + 1;
-    let newList: videoProps[] = [];
-    mm.map((item) => {
-      newList.push({
-        poster: "./data/images/test_" + tmp + item.toString() + "00.png",
-        videoUrl:
-          "./data/movies/movie_2023075" +
-          nextTmp.toString().padStart(2, "0") +
-          item.toString() +
-          ".mp4",
-      });
-    });
+    let newList: videoProps = {
+      poster:
+        "./data/images/" +
+        nextTmp.toString().padStart(2, "0") +
+        "/test_" +
+        tmp.toString().padStart(2, "0") +
+        "01.png",
+      videoUrl:
+        "./data/movie/movie_2023075" +
+        nextTmp.toString().padStart(2, "0") +
+        ".mp4",
+    };
+
     setVideoList(newList);
   };
   return (
@@ -101,48 +56,52 @@ export default function CardEvents() {
         </Typography>
         <hr />
         {/* <ImageGallery/> */}
-        <Grid container sx={{ py: 2, justifyContent: "center" }}>
-          <Grid item md></Grid>
-          <Grid item xs md>
-            <Typography variant="h4" textAlign="center">
-              Gradient [mm/km] {targetTime}:00 UT
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs
-            md
-            sx={{ display: "flex", justifyContent: "flex-end", mr: 2 }}
-          >
-            <FormControl sx={{ minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-label">Hour</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={targetTime}
-                label="Hour"
-                onChange={handleChange}
-              >
-                {selectList.map((item) => (
-                  <MenuItem value={item}>{item}</MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
+        <Box sx={{ display: "flex", my: 2 }} gap={2}>
+          <Typography variant="h6" textAlign="left">
+            圖中為不同GPS衛星觀測電離層梯度隨時間的變化。電離層梯度為電離層延遲量與相應兩面測站基線長度之比。基線長限制在
+            50
+            公里，因此北中南各挑選五股(wuku)、清水(chin)、成大(ncku)站為基站，搭配氣象局其他地面追蹤站組成網格狀分布。梯度值可分為寧靜期(藍紫色帶)、中度擾動(黃綠色帶)和強擾動(橘紅色帶)供使用者參考。
+          </Typography>
+        </Box>
         <Grid container spacing={2}>
-          {videoList.map((item) => (
-            <Grid item xs={6} md={4} xl={3}>
-              <ReactVideoGallery {...item} />
+          <Grid item xs={12} sx={{ display: "flex", alignItems: "center", my: 2}}>
+          <Grid item xs>
+              <Typography
+                sx={{ alignSelf: "center" }}
+                variant="h5"
+                textAlign="center"
+              >
+                2023/03/16 {targetTime} UT
+              </Typography>
             </Grid>
-          ))}
-
-          {/* <Grid item xs>
-
+            <Grid item xs sx={{ display: "flex", justifyContent: "center" }}>
+              <FormControl sx={{ minWidth: 80 }}>
+                <InputLabel id="demo-simple-select-label">Hour</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={targetTime}
+                  label="Hour"
+                  onChange={handleChange}
+                >
+                  {selectList.map((item) => (
+                    <MenuItem value={item}>{item}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
-            <Grid item xs>
+            
+          </Grid>
 
+          {/* <Grid item xs={6} md={4} xl={3}>
+              <ReactVideoGallery {} />
             </Grid> */}
+        </Grid>
+        <Grid container>
+          <Grid item xs={12}>
+            {/* <video width='inherit' poster={videoList.poster} src={videoList.videoUrl}></video> */}
+            <ReactVideoGallery {...videoList} />
+          </Grid>
         </Grid>
       </CardContent>
     </Card>

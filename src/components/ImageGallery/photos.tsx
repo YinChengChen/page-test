@@ -36,14 +36,14 @@ const photos = unsplashPhotos.map((photo) => {
     width: 1080,
     height: 800,
     title: "test",
-    srcSet: breakpoints.map((breakpoint) => {
-      const height = Math.round((photo.height / photo.width) * breakpoint);
-      return {
-        src: unsplashLink(photo.id, breakpoint, height),
-        width: breakpoint,
-        height,
-      };
-    }),
+    // srcSet: breakpoints.map((breakpoint) => {
+    //   const height = Math.round((photo.height / photo.width) * breakpoint);
+    //   return {
+    //     src: unsplashLink(photo.id, breakpoint, height),
+    //     width: breakpoint,
+    //     height,
+    //   };
+    // }),
   };
 });
 console.log(photos);

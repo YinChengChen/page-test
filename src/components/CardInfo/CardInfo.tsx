@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
-// import Box from '@mui/material/Box';
-import Card from "@mui/material/Card";
-// import CardActions from '@mui/material/CardActions';
-import CardContent from "@mui/material/CardContent";
-// import Button from '@mui/material/Button';
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-
+import { Card, CardContent, Typography, Grid } from "@mui/material";
 export default function CardInfo() {
-  const cardTitle = "最新資訊 - 太陽活動";
+  const cardTitle = "最新太陽活動";
   const itemNames = ["Kp Index", "Solar Flare"];
   const [kp, setKp] = useState({
     Date: "",
@@ -97,7 +90,7 @@ export default function CardInfo() {
               {kp.Value}
             </Typography>
             <Typography
-              sx={{ fontSize: 14, mt: 1 }}
+              sx={{ fontSize: 14, my: 1 }}
               color="text.secondary"
               textAlign="center"
             >

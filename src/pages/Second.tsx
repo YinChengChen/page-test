@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ImageGallery from "react-image-gallery";
+import ImageGallery from "../components/ImageGallery/ImageGallery";
 import ReactVideoGallery from "../components/ReactVideoGallery/ReactVideoGallery";
 import "react-image-gallery/styles/scss/image-gallery.scss";
 // import ImageGallery from "../components/ImageGallery/ImageGallery";
@@ -20,7 +20,7 @@ const images = [
 export default function Second() {
   return (
     <Box sx={{ mt: 12, mx: "auto", maxWidth: 1080 }}>
-      {/* <ReactVideoGallery /> */}
+      <ImageGallery />
     </Box>
   );
 }

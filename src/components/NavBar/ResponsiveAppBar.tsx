@@ -13,9 +13,9 @@ import MenuItem from "@mui/material/MenuItem";
 import { NavLink as Link } from "react-router-dom";
 import "./NavBar.scss";
 
-const pages = ["Home", "Reference"];
-const linkPaths = ["/", "/Reference"];
-const settings = ["Home", "Reference"];
+const pages = ["Home"];
+const linkPaths = ["/"];
+const settings = ["Home"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(

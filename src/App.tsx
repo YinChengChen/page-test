@@ -38,9 +38,7 @@ function App() {
         <ResponsiveAppBar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          {/* <Route path="/second" element={<Second/>}></Route> */}
-          <Route path="/Reference" element={<Reference />}></Route>
-          {/* <Route path="/Second" element={<Second />}></Route> */}
+          {/* <Route path="/Reference" element={<Reference />}></Route> */}
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

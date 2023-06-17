@@ -46,7 +46,7 @@ const renderPhotoProps: RenderPhoto = ({
 
 export default function ImageGallery() {
   const [index, setIndex] = useState(-1);
-
+  console.log(photos)
   return (
     <>
       <PhotoAlbum

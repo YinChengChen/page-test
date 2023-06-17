@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import DataCalander from "../components/DataCalander/DataCalander";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 export default function Reference() {
   const currentTime = new Date();
   const startY = 2023;
@@ -51,7 +51,6 @@ export default function Reference() {
       }
     }
   }
-  console.log(selectList);
   const [selectItem, setSelectItem] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -63,12 +62,7 @@ export default function Reference() {
       year: parseInt(event.target.value.slice(0, 4)),
       month: parseInt(event.target.value.slice(4)),
     }));
-    // console.log(kpfn);
   };
-
-  useEffect(() => {
-    // console.log('change', kpfn);
-  }, [kpfn]);
   return (
     <Box sx={{ mx: 3, pt: 12 }} height="100vh">
       <Card sx={{ display: "flex", py: 2, justifyContent: "center" }}>
