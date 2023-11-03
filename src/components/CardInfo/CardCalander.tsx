@@ -122,6 +122,7 @@ export default function CardCalander() {
               <Button
                 size="small"
                 href="https://www.spaceweatherlive.com/en/help/the-kp-index.html"
+                target="_blank"
               >
                 參考資訊
               </Button>
@@ -140,6 +141,7 @@ export default function CardCalander() {
               <Button
                 size="small"
                 href="https://www.spaceweatherlive.com/en/help/what-are-solar-flares.html"
+                target="_blank"
               >
                 參考資訊
               </Button>

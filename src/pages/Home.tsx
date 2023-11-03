@@ -6,6 +6,8 @@ import CardEvents from "../components/CardInfo/CardEvents";
 // import NavBar from '../components/NavBar/NavBar';
 import CardCalander from "../components/CardInfo/CardCalander";
 import CardIndex from "../components/CardInfo/CardIndex";
+import CardIondelay from "../components/CardInfo/CardIondelay";
+import LeafletMap from "../components/LeaflatMap/LeafletMap";
 export default function Home() {
   return (
     <Box sx={{ mx: 3, pt: 12 }} height="100vh">
@@ -13,6 +15,8 @@ export default function Home() {
         <Grid item xs={12} md={12} xl={6}>
           <CardInfo />
           <CardCalander />
+          <CardIondelay />
+          {/* <LeafletMap /> */}
         </Grid>
         <Grid item xs={12} md={12} xl={6}>
           <CardEvents />
