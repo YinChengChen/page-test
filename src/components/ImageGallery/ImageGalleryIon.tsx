@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import dayjs, { Dayjs } from "dayjs";
 import { PhotoAlbum, RenderPhoto, Photo } from "react-photo-album";
 import { Lightbox } from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";

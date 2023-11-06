@@ -8,6 +8,7 @@ import CardCalander from "../components/CardInfo/CardCalander";
 import CardIndex from "../components/CardInfo/CardIndex";
 import CardIondelay from "../components/CardInfo/CardIondelay";
 import LeafletMap from "../components/LeaflatMap/LeafletMap";
+import CardPredict from "../components/CardInfo/CardPredict";
 export default function Home() {
   return (
     <Box sx={{ mx: 3, pt: 12 }} height="100vh">
@@ -19,6 +20,7 @@ export default function Home() {
           {/* <LeafletMap /> */}
         </Grid>
         <Grid item xs={12} md={12} xl={6}>
+          <CardPredict/>
           <CardEvents />
           <CardIndex />
         </Grid>
