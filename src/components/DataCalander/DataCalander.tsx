@@ -75,7 +75,7 @@ const DataCalander = (dateList: dateList) => {
       setClander(matrix);
     };
     fetchData(dateList.kp, dateList.xray);
-    console.log("clander", clander);
+    // console.log("clander", clander);
   }, [dateList.kp]);
 
   return (
