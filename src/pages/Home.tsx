@@ -7,7 +7,6 @@ import CardEvents from "../components/CardInfo/CardEvents";
 import CardCalander from "../components/CardInfo/CardCalander";
 import CardIndex from "../components/CardInfo/CardIndex";
 import CardIondelay from "../components/CardInfo/CardIondelay";
-import LeafletMap from "../components/LeaflatMap/LeafletMap";
 import CardPredict from "../components/CardInfo/CardPredict";
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
           <CardInfo />
           <CardCalander />
           <CardIondelay />
-          {/* <LeafletMap /> */}
         </Grid>
         <Grid item xs={12} md={12} xl={6}>
           <CardPredict/>
