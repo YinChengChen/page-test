@@ -1,4 +1,4 @@
-import { Box, TextField, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import TitleImageList from "../components/ImageList/TitleImageList";
 // import AwesomeInput from '../components/AwesomeInput/AwesomeInput';
 import CardInfo from "../components/CardInfo/CardInfo";
@@ -20,7 +20,7 @@ export default function Home() {
           <CardEvents />
           <CardIndex />
       
-      </Grid>
-    </Box>
+  </Box>
+  
   );
 }
