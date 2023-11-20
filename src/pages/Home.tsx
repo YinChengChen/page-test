@@ -1,4 +1,4 @@
-import { Box, TextField, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 import TitleImageList from "../components/ImageList/TitleImageList";
 // import AwesomeInput from '../components/AwesomeInput/AwesomeInput';
 import CardInfo from "../components/CardInfo/CardInfo";
@@ -7,24 +7,20 @@ import CardEvents from "../components/CardInfo/CardEvents";
 import CardCalander from "../components/CardInfo/CardCalander";
 import CardIndex from "../components/CardInfo/CardIndex";
 import CardIondelay from "../components/CardInfo/CardIondelay";
-import LeafletMap from "../components/LeaflatMap/LeafletMap";
 import CardPredict from "../components/CardInfo/CardPredict";
 export default function Home() {
   return (
-    <Box sx={{ mx: 3, pt: 12 }} height="100vh">
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={12} xl={6}>
+    <Box sx={{ mx: 'auto', pt: 12, px: 2 , maxWidth: "xl" }} height="100vh">
+      
           <CardInfo />
           <CardCalander />
           <CardIondelay />
-          {/* <LeafletMap /> */}
-        </Grid>
-        <Grid item xs={12} md={12} xl={6}>
+      
           <CardPredict/>
           <CardEvents />
           <CardIndex />
-        </Grid>
-      </Grid>
-    </Box>
+      
+  </Box>
+  
   );
 }

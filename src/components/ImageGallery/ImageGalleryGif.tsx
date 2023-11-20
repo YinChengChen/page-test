@@ -56,7 +56,8 @@ export default function ImageGalleryGif(){
         <Box sx={{ mx: "auto" }}>
         <PhotoAlbum
             photos={initalPhotos}
-            layout="rows"
+            layout="masonry"
+            columns={3}
             padding={0}
             targetRowHeight={500}
             onClick={({ index }) => setIndex(index)}

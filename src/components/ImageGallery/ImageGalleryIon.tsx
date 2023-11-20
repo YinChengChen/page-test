@@ -20,7 +20,7 @@ const renderPhotoProps: RenderPhoto = ({
         position: "relative",
         width: "100%",
       }}>
-        <img
+        <img         
         {...restImageProps}            
         />
         <div
@@ -44,9 +44,8 @@ const ImageGalleryIon = (folderName: folderName) => {
     // console.log(folderName.name);
     const [index, setIndex] = useState(-1);
     const [images, setImages] = useState([]);
-    // const ip = "./data/ion/" + folderName.name + "/imglist.json";
-    const initalPhotos: Photo[] = [];
-    // console.log("./data/ion/" + folderName.name + "imglist.json");
+    const initalPhotos: Photo[] = [];    
+    
     const fetchImg = (ip: string) => {
         fetch(ip).then(res => {
             return res.json();
@@ -62,18 +61,19 @@ const ImageGalleryIon = (folderName: folderName) => {
     images.map((item: string) => {
         initalPhotos.push({
             src: "./data/ion/"+ folderName.name + "/" + item,
-            width: 700,
-            height: 500,
+            width: 800,
+            height: 600,
             title: item.slice(22, 26)
         })
     })
 
     return(
-        <Box sx={{ mx: "auto"}}>
+        <Box id="photoAlbum" sx={{ mx: "auto"}}>
             <PhotoAlbum
                 photos={initalPhotos}
-                layout="rows"
+                layout="masonry"
                 padding={0}
+                columns={4}
                 targetRowHeight={500}
                 onClick={({index}) => setIndex(index)}
                 renderPhoto={renderPhotoProps}
