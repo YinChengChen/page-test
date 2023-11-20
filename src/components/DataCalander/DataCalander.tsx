@@ -75,7 +75,7 @@ const DataCalander = (dateList: dateList) => {
       setClander(matrix);
     };
     fetchData(dateList.kp, dateList.xray);
-    console.log("clander", clander);
+    // console.log("clander", clander);
   }, [dateList.kp]);
 
   return (
@@ -109,7 +109,7 @@ const DataCalander = (dateList: dateList) => {
             >
               <Typography textAlign="center">{item.day}</Typography>
               <Box
-                sx={{ display: "flex", gap: 2, justifyContent: "space-around" }}
+                sx={{ display: "flex", gap: 1, justifyContent: "space-around" }}
               >
                 <Typography sx={{ color: item.xrayColor }} textAlign="center">
                   {item.xray}
