@@ -112,8 +112,8 @@ export default function CardCalander() {
         </Grid>
       </Card>
       <DataCalander kp={kpfn} xray={xrayfn} />
-      <Box sx={{ display: "flex", gap: 2, pb: 2, pt: 0 }}>
-        <Card>
+      {/* <Box sx={{ display: "flex", gap: 2, pb: 2, pt: 0 }}> */}
+        {/* <Card>
           <CardContent sx={{ pb: 0 }}>
             <CardActions
               sx={{ pt: 0, pr: 2, pl: 0, justifyContent: "space-between" }}
@@ -130,8 +130,8 @@ export default function CardCalander() {
               Kp指數是一個全球地磁活動指數，基於全球各地地基磁力儀的3小時測量數據。Kp指數的範圍從0到9，其中0表示地磁活動非常微弱，而9表示極端的地磁風暴。
             </Typography>
           </CardContent>
-        </Card>
-        <Card>
+        </Card> */}
+        {/* <Card>
           <CardContent>
             <CardActions
               sx={{ pt: 0, pr: 2, pl: 0, justifyContent: "space-between" }}
@@ -151,8 +151,8 @@ export default function CardCalander() {
               太陽耀斑根據在地球附近以1至8埃安斯特倫（Angstroms）的X射線的峰值通量（以每平方米瓦特，W/m2，為單位）分類為A、B、C、M或X級。
             </Typography>
           </CardContent>
-        </Card>
-      </Box>
+        </Card> */}
+      {/* </Box> */}
     </Box>
   );
 }

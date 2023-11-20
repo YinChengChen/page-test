@@ -8,17 +8,11 @@ import CardCalander from "../components/CardInfo/CardCalander";
 import CardIndex from "../components/CardInfo/CardIndex";
 export default function Home() {
   return (
-    <Box sx={{ mx: 3, pt: 12 }} height="100vh">
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={12} xl={6}>
+    <Box sx={{ mx: 'auto', pt: 12, px: 2, maxWidth: 'xl' }} height="100vh">
           <CardInfo />
           <CardCalander />
-        </Grid>
-        <Grid item xs={12} md={12} xl={6}>
           <CardEvents />
           <CardIndex />
-        </Grid>
-      </Grid>
     </Box>
   );
 }
