@@ -41,7 +41,7 @@ const renderPhotoProps: RenderPhoto = ({
 
 
 const ImageGalleryIon = (folderName: folderName) => {
-    console.log(folderName.name);
+    // console.log(folderName.name);
     const [index, setIndex] = useState(-1);
     const [images, setImages] = useState([]);
     // const ip = "./data/ion/" + folderName.name + "/imglist.json";
@@ -68,7 +68,6 @@ const ImageGalleryIon = (folderName: folderName) => {
         })
     })
 
-    console.log(images);
     return(
         <Box sx={{ mx: "auto"}}>
             <PhotoAlbum

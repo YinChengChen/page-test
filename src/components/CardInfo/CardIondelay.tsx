@@ -11,12 +11,7 @@ import { DayCalendarSkeleton } from '@mui/x-date-pickers/DayCalendarSkeleton';
 import CalendarPicker from "../DataCalander/CalendarPicker";
 import ImageGalleryIon from "../ImageGallery/ImageGalleryIon";
 import { DatePicker } from "@mui/x-date-pickers";
-
-// const fetchData = async (dp: string) => {
-//     let res = await fetch(dp);
-//     let pdata = await res.json();
-//     return pdata;
-// }
+import LeafletMap from "../LeaflatMap/LeafletMap";
 
 export default function CardIondelay() {
     const cardTitle = "電離層延遲量";
@@ -61,7 +56,11 @@ export default function CardIondelay() {
                 <hr/>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <MapComponent/>
+                        
+                        <LeafletMap 
+                        //@ts-ignore
+                         name={folder}/>
+                        {/* <MapComponent/> */}
                     </Grid>
                     <Grid item xs={12} sx={{ mb: 2}}>
                             
@@ -71,24 +70,7 @@ export default function CardIondelay() {
             // @ts-ignore
             onChange={handleChange} />
       </DemoContainer>
-    </LocalizationProvider>
-                            
-                          
-                            {/* <FormControl fullWidth>
-                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                            <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={selectItem}
-                            label="Age"
-                            onChange={handleChange}
-                            >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                            </Select>
-                            </FormControl> */}
-                        
+    </LocalizationProvider>                        
                     </Grid>
                 </Grid>
                 <ImageGalleryIon name={folder} />
