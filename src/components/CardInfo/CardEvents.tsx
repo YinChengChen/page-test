@@ -64,8 +64,12 @@ export default function CardEvents() {
           </Typography>
         </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} sx={{ display: "flex", alignItems: "center", my: 2}}>
-          <Grid item xs>
+          <Grid
+            item
+            xs={12}
+            sx={{ display: "flex", alignItems: "center", my: 2 }}
+          >
+            <Grid item xs>
               <Typography
                 sx={{ alignSelf: "center" }}
                 variant="h5"
@@ -90,7 +94,6 @@ export default function CardEvents() {
                 </Select>
               </FormControl>
             </Grid>
-            
           </Grid>
 
           {/* <Grid item xs={6} md={4} xl={3}>

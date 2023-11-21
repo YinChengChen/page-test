@@ -10,17 +10,14 @@ import CardIondelay from "../components/CardInfo/CardIondelay";
 import CardPredict from "../components/CardInfo/CardPredict";
 export default function Home() {
   return (
-    <Box sx={{ mx: 'auto', pt: 12, px: 2 , maxWidth: "xl" }} height="100vh">
-      
-          <CardInfo />
-          <CardCalander />
-          <CardIondelay />
-      
-          <CardPredict/>
-          <CardEvents />
-          <CardIndex />
-      
-  </Box>
-  
+    <Box sx={{ mx: "auto", pt: 12, px: 2, maxWidth: "xl" }} height="100vh">
+      <CardInfo />
+      <CardCalander />
+      <CardIondelay />
+
+      <CardPredict />
+      <CardEvents />
+      <CardIndex />
+    </Box>
   );
 }
