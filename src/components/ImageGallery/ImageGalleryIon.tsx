@@ -65,7 +65,7 @@ const ImageGalleryIon = (folderName: folderName) => {
       src: "./data/ion/" + folderName.name + "/" + item,
       width: 800,
       height: 600,
-      title: item.slice(0, 4),
+      title: item.slice(5, 9),
     });
   });
 

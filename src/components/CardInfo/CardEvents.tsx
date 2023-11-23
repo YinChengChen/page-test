@@ -8,6 +8,12 @@ import {
   MenuItem,
   Box,
 } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import dayjs, { Dayjs } from "dayjs";
+import { DateTimeField } from '@mui/x-date-pickers/DateTimeField';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import ReactVideoGallery from "../ReactVideoGallery/ReactVideoGallery";
 import { useState } from "react";
@@ -19,6 +25,7 @@ interface videoProps {
 export default function CardEvents() {
   const [targetTime, setTargetTime] = useState("00");
   const cardTitle = "GPS 電離層擾動測報";
+  const [value, setValue] = useState<Dayjs | null>(dayjs('2023-09-17T15:00'));
 
   let selectList = [];
   for (let i = 0; i < 24; i++) selectList.push(i.toString().padStart(2, "0"));
@@ -77,6 +84,22 @@ export default function CardEvents() {
               >
                 2023/03/16 {targetTime} UT
               </Typography>
+            </Grid>
+            <Grid item xs>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={['DateTimeField']}>
+                  <DateTimePicker
+                    ampm={false}
+                    label="Month/Day/Year Hour(UT)"
+                    views={["year", "month", "day", "hours"]}
+                    value={value}
+                    onChange={(newValue)=>{setValue(newValue)}}
+                    format="L h"
+                  />
+
+                  
+                </DemoContainer>
+              </LocalizationProvider>
             </Grid>
             <Grid item xs sx={{ display: "flex", justifyContent: "center" }}>
               <FormControl sx={{ minWidth: 80 }}>
