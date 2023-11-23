@@ -3,6 +3,7 @@
 # data
 /public/data/images
 /public/data/movie
+/public/data/ion
 # dependencies
 /node_modules
 /.pnp
