@@ -1,16 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import {
-  Badge,
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
-  SelectChangeEvent,
-} from "@mui/material";
+import { Badge, Card, CardContent, Typography, Grid } from "@mui/material";
 import MapComponent from "../LeaflatMap/MapComponent";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";

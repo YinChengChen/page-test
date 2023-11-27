@@ -9,6 +9,10 @@ import "yet-another-react-lightbox/styles.css";
 import { useState } from "react";
 import { Box } from "@mui/material";
 
+interface data {
+  folder: string,
+  hour: number,
+}
 const renderPhotoProps: RenderPhoto = ({
   imageProps: { title, ...restImageProps },
 }) => (
@@ -36,21 +40,21 @@ const renderPhotoProps: RenderPhoto = ({
   </div>
 );
 
-export default function ImageGalleryGif() {
+const ImageGalleryGif = (data: data) => {
+  console.log(data);
   const [index, setIndex] = useState(-1);
-  const mm = [0, 10, 20, 30, 40, 50];
+  const mm =[0, 10, 20, 30, 40, 50];
   const initalPhotos: Photo[] = [];
   mm.map((item) => {
     initalPhotos.push({
-      src:
-        "./data/lli/lli_202307516" + item.toString().padStart(2, "0") + ".gif",
+      src: "./data/lli/" + data.folder + "/" + "lli" + data.hour.toString().padStart(2, "0") + item.toString().padStart(2, "0") + ".gif",
       width: 800,
       height: 450,
-      title: "16:" + item.toString().padStart(2, "0"),
-    });
-  });
-  // console.log(initalPhotos);
-  return (
+      title: data.hour.toString().padStart(2, "0")+ ":" + item.toString().padStart(2, "0"),
+    })
+  })
+  console.log(initalPhotos)
+  return(
     <Box sx={{ mx: "auto" }}>
       <PhotoAlbum
         photos={initalPhotos}
@@ -71,3 +75,39 @@ export default function ImageGalleryGif() {
     </Box>
   );
 }
+export default ImageGalleryGif;
+// export default function ImageGalleryGif() {
+//   const [index, setIndex] = useState(-1);
+//   const mm = [0, 10, 20, 30, 40, 50];
+//   const initalPhotos: Photo[] = [];
+//   mm.map((item) => {
+//     initalPhotos.push({
+//       src:
+//         "./data/lli/lli_202307516" + item.toString().padStart(2, "0") + ".gif",
+//       width: 800,
+//       height: 450,
+//       title: "16:" + item.toString().padStart(2, "0"),
+//     });
+//   });
+//   // console.log(initalPhotos);
+//   return (
+//     <Box sx={{ mx: "auto" }}>
+//       <PhotoAlbum
+//         photos={initalPhotos}
+//         layout="masonry"
+//         columns={3}
+//         padding={0}
+//         targetRowHeight={500}
+//         onClick={({ index }) => setIndex(index)}
+//         renderPhoto={renderPhotoProps}
+//       />
+//       <Lightbox
+//         slides={initalPhotos}
+//         open={index >= 0}
+//         index={index}
+//         close={() => setIndex(-1)}
+//         plugins={[Fullscreen, Thumbnails, Zoom, Slideshow]}
+//       />
+//     </Box>
+//   );
+// }

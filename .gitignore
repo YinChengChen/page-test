@@ -4,6 +4,7 @@
 /public/data/images
 /public/data/movie
 /public/data/ion
+/public/data/lli
 # dependencies
 /node_modules
 /.pnp
