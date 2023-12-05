@@ -20,13 +20,16 @@ interface MatrixItem {
 
 export default function CardIondelay() {
   const cardTitle = "電離層延遲量";
-  const [value, setValue] = useState<Dayjs>(dayjs("2023-09-01"));
+  const today = dayjs(new Date());
+  const [value] = useState<Dayjs>(today.subtract(2, "M"));
   const [dateList, setDateList] = useState<MatrixItem[]>([]);
   const dp = "./pickerDate.json";
   const [folder, setFolder] = useState("2023.244");
   const requestAbortController = useRef<AbortController | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
+  
+  
 
   const handleChange = (value: Dayjs) => {
     let y = value?.get("year");
@@ -119,7 +122,6 @@ export default function CardIondelay() {
         });
       })
       .then(({ daysToHighLight }) => {
-        console.log(daysToHighLight);
         setHighlightedDays(daysToHighLight);
         setIsLoading(false);
       })
@@ -149,7 +151,6 @@ export default function CardIondelay() {
     setIsLoading(true);
     setHighlightedDays([]);
     fetchHighLightedDays(date);
-    console.log("Month");
   };
 
   const handleYearChange = (date: Dayjs) => {
@@ -161,7 +162,6 @@ export default function CardIondelay() {
     setIsLoading(true);
     setHighlightedDays([]);
     fetchHighLightedDays(date);
-    console.log("Year");
   };
 
   return (

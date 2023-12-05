@@ -31,3 +31,6 @@ yarn-error.log*
 /.firebaserc
 firebase.js
 firebase.json
+
+# Docker
+Dockerfile
