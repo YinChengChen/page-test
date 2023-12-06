@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { Badge, Card, CardContent, Typography, Grid } from "@mui/material";
-import MapComponent from "../LeaflatMap/MapComponent";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -9,7 +8,7 @@ import { PickersDay, PickersDayProps } from "@mui/x-date-pickers/PickersDay";
 import { DayCalendarSkeleton } from "@mui/x-date-pickers/DayCalendarSkeleton";
 import ImageGalleryIon from "../ImageGallery/ImageGalleryIon";
 import { DatePicker } from "@mui/x-date-pickers";
-import LeafletMap from "../LeaflatMap/LeafletMap";
+import MyMap from "../LeaflatMap/MyMap";
 
 interface MatrixItem {
   year: number;
@@ -172,7 +171,7 @@ export default function CardIondelay() {
         </Typography>
         <hr />
         <Grid container spacing={2}>
-          <Grid item xs={12} sx={{ mb: 2 }}>
+          <Grid item xs={12} md={3} sx={{ mb: 2 }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DatePicker"]}>
                 <DatePicker
@@ -196,6 +195,9 @@ export default function CardIondelay() {
                 />
               </DemoContainer>
             </LocalizationProvider>
+          </Grid>
+          <Grid item xs={12} md={9} sx={{ mb: 2, height: "500px"}}>
+                  <MyMap/>
           </Grid>
         </Grid>
         <ImageGalleryIon name={folder} />
