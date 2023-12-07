@@ -26,9 +26,7 @@ export default function CardIondelay() {
   const [folder, setFolder] = useState("2023.244");
   const requestAbortController = useRef<AbortController | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
-  
-  
+  const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]); 
 
   const handleChange = (value: Dayjs) => {
     let y = value?.get("year");
@@ -202,6 +200,6 @@ export default function CardIondelay() {
         </Grid>
         <ImageGalleryIon name={folder} />
       </CardContent>
-    </Card>
+    </Card>    
   );
 }

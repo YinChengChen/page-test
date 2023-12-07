@@ -14,9 +14,9 @@ export default function Home() {
       <CardInfo />
       <CardCalander />
       <CardIondelay />
-
-      <CardPredict />
       <CardEvents />
+      <CardPredict />
+      
       <CardIndex />
     </Box>
   );

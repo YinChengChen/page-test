@@ -70,7 +70,7 @@ const ImageGalleryIon = (folderName: folderName) => {
   });
 
   return (
-    <Box id="photoAlbum" sx={{ mx: "auto" }}>
+    <Box sx={{ mx: "auto" }}>
       <PhotoAlbum
         photos={initalPhotos}
         layout="masonry"
