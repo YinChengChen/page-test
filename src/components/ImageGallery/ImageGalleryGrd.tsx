@@ -42,17 +42,16 @@ const renderPhotoProps: RenderPhoto = ({
 
   const ImageGalleryGrd = ( folderName: folderName ) => {
     const [index, setIndex] = useState(-1);
-    const [images, setImages] = useState([]);
     const initalPhotos: Photo[] = [];
     for (let i = 1; i<25; i++){
         initalPhotos.push({
             src: "./data/grd/" + folderName.name + "/gd" + i.toString().padStart(2, "0") + ".gif",
             width: 1000,
-            height: 800,
+            height: 700,
             title: (i -1).toString().padStart(2, "0") + "UT"
         })
     }
-
+    // console.log(initalPhotos);
     return (
         <Box sx={{ mx: "auto"}}>
             {/* @ts-ignore */}
@@ -61,18 +60,17 @@ const renderPhotoProps: RenderPhoto = ({
                 layout="masonry"
                 padding={0}
                 columns={4}
-                targetRowHeight={500}
+                targetRowHeight={400}
                 onClick={({index}) => setIndex(index)}
                 renderPhoto={renderPhotoProps}
-            >
+            />
             <Lightbox
                 slides={initalPhotos}
                 open={index >= 0}
                 index={index}
                 close={() => setIndex(-1)}
                 plugins={[Fullscreen, Thumbnails, Zoom, Slideshow]}
-            />
-            </PhotoAlbum>
+            />            
         </Box>
     )
   }

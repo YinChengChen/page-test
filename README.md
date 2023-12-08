@@ -1,5 +1,5 @@
 # Iondelay Server
-version : 7.0
+version : 7.2
 # Web Url
 [Iondelay Website](navalmetoc.earth.ncku.edu.tw)
 
@@ -7,4 +7,5 @@ version : 7.0
 1. map: leaflet
 
 # Data
-- Update gradient plot
+- Gradient plot
+- Ion delay

@@ -41,7 +41,7 @@ const renderPhotoProps: RenderPhoto = ({
 );
 
 const ImageGalleryGif = (data: data) => {
-  console.log(data);
+  // console.log(data);
   const [index, setIndex] = useState(-1);
   const mm =[0, 10, 20, 30, 40, 50];
   const initalPhotos: Photo[] = [];
@@ -53,7 +53,7 @@ const ImageGalleryGif = (data: data) => {
       title: data.hour.toString().padStart(2, "0")+ ":" + item.toString().padStart(2, "0"),
     })
   })
-  console.log(initalPhotos)
+  // console.log(initalPhotos)
   return(
     <Box sx={{ mx: "auto" }}>
       <PhotoAlbum

@@ -5,6 +5,9 @@
 /public/data/movie
 /public/data/ion
 /public/data/lli
+/public/data/kp
+/public/data/xray
+/public/data/grd
 # dependencies
 /node_modules
 /.pnp
