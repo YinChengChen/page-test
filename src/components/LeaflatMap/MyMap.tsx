@@ -39,14 +39,23 @@ const MyMap:FC<componentProps> = ({statList}) => {
 
     useEffect(()=>{
         fetchData()
-        .then((result) => {
-            statList.map((item) => {
-              targets.push(result.find((r: list) => r.stat === item))
-            })            
-            setStats(targets);
+        .then((result) => {            
+          statList.map((item) => {
+            targets.push(result.find((r: list) => r.stat === item))
+          })            
+          setStats(targets);
         })
-        return () => requestAbortController.current?.abort();
-    }, [stats])
+        return () => {
+          requestAbortController.current?.abort()
+          
+        };
+    }, [statList])
+
+    // useEffect(() => {
+    //   statList.map((item) => {
+    //     targets.push(stats.find(r:list => r.stat === item));
+    //   })
+    // }, [statList])
 
     return(   
         <MapContainer style={{ height: "100%", width: "100%"}} center={[23.57565, 120.9738819]} zoom={7}>
