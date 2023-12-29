@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, FC } from "react";
 import { PhotoAlbum, RenderPhoto, Photo } from "react-photo-album";
 import { Lightbox } from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
@@ -8,10 +8,13 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/styles.css";
 import { Box } from "@mui/material";
+import { InsertInvitationOutlined } from "@mui/icons-material";
+import { type } from "os";
 
-interface folderName {
-    name: string;
-}
+interface componentProps {
+    folderName: string;
+    statList: string[];
+  }
 
 const renderPhotoProps: RenderPhoto = ({
     imageProps: { title, ...restImageProps },
@@ -40,28 +43,27 @@ const renderPhotoProps: RenderPhoto = ({
     </div>
   );
 
-  const ImageGalleryGrd = ( folderName: folderName ) => {
+const ImageGalleryIonMap: FC<componentProps> = ({ folderName, statList}) => {
     const [index, setIndex] = useState(-1);
     const initalPhotos: Photo[] = [];
-    for (let i = 1; i<25; i++){
+    
+    statList.map((item) => {
         initalPhotos.push({
-            src: "./data/grd/" + folderName.name + "/gd" + i.toString().padStart(2, "0") + ".gif",
-            width: 1000,
-            height: 700,
-            title: (i -1).toString().padStart(2, "0") + "UT"
+            src: "./data/ion/" + folderName + "/ncku/" + item + ".png",
+            width: 800,
+            height: 600,
+            title: item,
         })
-    }
-    // console.log(initalPhotos);
-    return (
-        <Box sx={{ mx: "auto"}}>
-            {/* @ts-ignore */}
+    })
+    return(
+        <Box>
             <PhotoAlbum
                 photos={initalPhotos}
                 layout="masonry"
                 padding={0}
                 columns={4}
-                targetRowHeight={400}
-                onClick={({index}) => setIndex(index)}
+                targetRowHeight={500}
+                onClick={({ index }) => setIndex(index)}
                 renderPhoto={renderPhotoProps}
             />
             <Lightbox
@@ -70,9 +72,9 @@ const renderPhotoProps: RenderPhoto = ({
                 index={index}
                 close={() => setIndex(-1)}
                 plugins={[Fullscreen, Thumbnails, Zoom, Slideshow]}
-            />            
+            />
         </Box>
-    )
-  }
+    );
+}
 
-  export default ImageGalleryGrd;
+export default ImageGalleryIonMap;
